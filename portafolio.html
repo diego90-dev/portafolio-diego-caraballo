@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Diego Caraballo - Desarrollador Web</title>
+    <meta name="description" content="Portafolio oficial de Diego Caraballo, desarrollador web especializado en la creación de páginas web funcionales y atractivas.">
+    <meta name="keywords" content="Diego Caraballo, portafolio, desarrollador web, páginas web, diseño web, desarrollo front-end, freelance, proyectos web">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/portafolio.css"> 
+
+</head>
+<body>
+
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="img/logotipo.png" alt="Logo Diego Caraballo" class="logo-image me-2">
+                    <span class="logo-text d-none d-md-block">Diego <span class="logo-dot">Caraballo</span></span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="portfolio.html">Portafolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#services">Servicios</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#contact">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        
+        <section id="portfolio-hero" class="hero-section text-center py-5">
+            <div class="container">
+                <h1 class="display-4 fw-bold mb-3">Mi Portafolio de Desarrollo Web</h1>
+                <p class="lead">Explora mis proyectos, habilidades y experiencia en la creación de soluciones web funcionales y atractivas.</p>
+                <a href="#portfolio-projects" class="btn btn-primary btn-lg mt-3">Ver Proyectos</a>
+            </div>
+        </section>
+
+        <section id="portfolio-summary" class="section-padding bg-light">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-4 text-center mb-4 mb-md-0">
+                        <img src="img/imgcentro.jpg" alt="Foto de perfil de Diego Caraballo" class="img-fluid rounded-circle shadow-lg about-image-wrapper">
+                    </div>
+                    <div class="col-md-8">
+                        <h2 class="section-title mb-3">Diego Caraballo</h2>
+                        <h3 class="fw-normal text-muted mb-4">Desarrollador Web Front-end | Páginas Web Funcionales</h3>
+                        <p class="fs-5">¡Bienvenido a mi espacio digital! Soy Diego Caraballo, un apasionado desarrollador web especializado en convertir ideas en experiencias interactivas y eficientes en la web. Mi objetivo es construir sitios que no solo se vean bien, sino que también funcionen a la perfección, sean fáciles de usar y estén optimizados para el rendimiento.</p>
+                        <p>Aquí encontrarás una muestra de mi trabajo, mis habilidades técnicas y mi enfoque para resolver problemas con código.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-index" class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Navega por mi Portafolio</h2>
+                <div class="row text-center justify-content-center"> 
+                    <div class="col-md-4 mb-4">
+                        <a href="#portfolio-projects" class="card-link-item">
+                            <div class="card h-100 shadow-sm p-4">
+                                <h4 class="card-title text-primary">Proyectos</h4>
+                                <p class="card-text">Explora mis trabajos más destacados.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="#portfolio-skills" class="card-link-item">
+                            <div class="card h-100 shadow-sm p-4">
+                                <h4 class="card-title text-primary">Habilidades</h4>
+                                <p class="card-text">Descubre las tecnologías que domino.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <a href="#portfolio-contact-footer" class="card-link-item">
+                            <div class="card h-100 shadow-sm p-4">
+                                <h4 class="card-title text-primary">Contacto</h4>
+                                <p class="card-text">Hablemos de tu próximo proyecto.</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-projects" class="section-padding bg-light">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Proyectos Destacados</h2>
+                <div id="projects-container" class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/zz center proyecto 1.png" class="card-img-top" alt="Captura de pantalla del Proyecto 1">
+                            <div class="card-body">
+                                <h4 class="card-title">Proyecto de zz store tienda virtual</h4>
+                                <p class="card-text">Desarrollo completo de una tienda en línea responsiva con carrito de compras y pasarela de pago integrada.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">HTML</span>
+                                    <span class="badge">CSS</span>
+                                    <span class="badge">JavaScript</span>
+                                    <span class="badge">React</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="proyecto de zz store tienda virtual"
+                                   data-project-link="https://elmaujesus.github.io/Prototipo-ZZ/">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/zz store proyecto 2.png" class="card-img-top" alt="Captura de pantalla del Proyecto 2">
+                            <div class="card-body">
+                                <h4 class="card-title">Tienda de ropa virtual</h4>
+                                <p class="card-text">Diseño y desarrollo de un sitio web informativo y profesional.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">HTML</span>
+                                    <span class="badge">CSS (Sass)</span>
+                                    <span class="badge">JavaScript</span>
+                                    <span class="badge">GSAP</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="Sitio Web de ropa virtual"
+                                   data-project-link="https://diego90-dev.github.io/ZZ-Store-Web-tienda/">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/liceo proyecto 3.png" class="card-img-top" alt="Captura de pantalla del Proyecto 3">
+                            <div class="card-body">
+                                <h4 class="card-title">Unidad educativa liceo</h4>
+                                <p class="card-text">Pagina para unidad educativa para facilitar la busqueda, inscripciones.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">HTML</span>
+                                    <span class="badge">CSS</span>
+                                    <span class="badge">Vanilla JS</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="Unidad educativa Liceo-beta1"
+                                   data-project-link="https://diego90-dev.github.io/Liceo-beta1/">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4 hidden-project">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/project4.jpg" class="card-img-top" alt="Captura de pantalla del Proyecto 4">
+                            <div class="card-body">
+                                <h4 class="card-title">Landing Page para Campaña de Marketing</h4>
+                                <p class="card-text">Diseño y desarrollo de una landing page optimizada para la captación de leads y campañas publicitarias.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">HTML5</span>
+                                    <span class="badge">CSS3</span>
+                                    <span class="badge">JavaScript</span>
+                                    <span class="badge">SEO</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="Landing Page para Campaña de Marketing"
+                                   data-project-link="https://landing-page-campaign.com">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 hidden-project">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/project5.jpg" class="card-img-top" alt="Captura de pantalla del Proyecto 5">
+                            <div class="card-body">
+                                <h4 class="card-title">Blog Personal de Tecnología</h4>
+                                <p class="card-text">Creación de una plataforma de blog con sistema de publicación de artículos, comentarios y categorías.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">WordPress</span>
+                                    <span class="badge">PHP</span>
+                                    <span class="badge">MySQL</span>
+                                    <span class="badge">Diseño Responsive</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="Blog Personal de Tecnología"
+                                   data-project-link="https://tech-blog-personal.com">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4 hidden-project">
+                        <div class="card portfolio-item h-100 shadow-sm">
+                            <img src="img/project6.jpg" class="card-img-top" alt="Captura de pantalla del Proyecto 6">
+                            <div class="card-body">
+                                <h4 class="card-title">Dashboard Administrativo (Front-end)</h4>
+                                <p class="card-text">Desarrollo de la interfaz de usuario para un panel de administración con gráficos, tablas y formularios.</p>
+                                <div class="portfolio-item-badges">
+                                    <span class="badge">Vue.js</span>
+                                    <span class="badge">Vuetify</span>
+                                    <span class="badge">API REST</span>
+                                    <span class="badge">Autenticación</span>
+                                </div>
+                                <a href="#" class="btn btn-outline-primary btn-sm mt-auto"
+                                   data-bs-toggle="modal" data-bs-target="#projectDetailModal"
+                                   data-project-title="Dashboard Administrativo (Front-end)"
+                                   data-project-link="https://admin-dashboard-demo.com">Ver Detalles</a>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                <button id="load-more-btn" class="btn mt-5">Mostrar Más Proyectos</button>
+            </div>
+        </section>
+
+        <section id="portfolio-skills" class="section-padding">
+            <div class="container">
+                <h2 class="section-title text-center mb-5">Habilidades Técnicas</h2>
+                <div class="row justify-content-center text-center g-4">
+                    <div class="col-md-4">
+                        <div class="skill-category p-4 shadow-sm rounded h-100">
+                            <h3 class="mb-3">Front-end</h3>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge">HTML5</span>
+                                <span class="badge">CSS3</span>
+                                <span class="badge">JavaScript (ES6+)</span>
+                                <span class="badge">React.js</span>
+                                <span class="badge">Next.js</span>
+                                <span class="badge">TypeScript</span>
+                                <span class="badge">Redux</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="skill-category p-4 shadow-sm rounded h-100">
+                            <h3 class="mb-3">Herramientas & Frameworks</h3>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge">Bootstrap</span>
+                                <span class="badge">Tailwind CSS</span>
+                                <span class="badge">Sass / Less</span>
+                                <span class="badge">Figma</span>
+                                <span class="badge">Git & GitHub</span>
+                                <span class="badge">Webpack / Vite</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="skill-category p-4 shadow-sm rounded h-100">
+                            <h3 class="mb-3">Back-end & DB</h3>
+                            <div class="d-flex flex-wrap justify-content-center gap-2">
+                                <span class="badge">Node.js</span>
+                                <span class="badge">Express.js</span>
+                                <span class="badge">MongoDB</span>
+                                <span class="badge">SQL (Básico)</span>
+                                <span class="badge">RESTful APIs</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio-contact-footer" class="section-padding text-center bg-light">
+            <div class="container">
+                <h2 class="section-title mb-4">¿Listo para tu próximo proyecto?</h2>
+                <p class="lead mb-4">Contáctame y hagamos realidad tus ideas.</p>
+                <a href="https://www.instagram.com/diego_caraballo21/" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg me-3">Visitar Instagram</a>
+                <a href="index.html#contact" class="btn btn-outline-dark btn-lg">Visitar Contacto</a>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-left">
+                <div class="logo footer-logo">
+                    <img src="img/logotipo.png" alt="Logo Diego Caraballo" class="logo-image-footer">
+                </div>
+                <p class="copyright">© <span id="current-year-portfolio"></span> Diego Caraballo. Todos los derechos reservados.</p>
+            </div>
+            
+            <div class="footer-center">
+                <a href="https://www.instagram.com/diego_caraballo21/" target="_blank" rel="noopener noreferrer" class="footer-email">@diego_caraballo21</a>
+            </div>
+
+            <div class="footer-right">
+                </div>
+        </div>
+    </footer>
+
+    <div class="modal fade" id="projectDetailModal" tabindex="-1" aria-labelledby="projectDetailModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="projectDetailModalLabel">Título del Proyecto</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Puedes visitar este proyecto en el siguiente enlace:</p>
+                    <div class="text-center p-3 border rounded mb-3 bg-light">
+                        <a id="modalProjectLink" href="#" target="_blank" class="fw-bold text-decoration-none" rel="noopener noreferrer">Enlace del Proyecto</a>
+                    </div>
+                    <p class="text-muted small">Haz clic en "Ir al Proyecto" para abrirlo en una nueva pestaña.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <a id="modalVisitProject" href="#" target="_blank" class="btn btn-primary" rel="noopener noreferrer">Ir al Proyecto</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>

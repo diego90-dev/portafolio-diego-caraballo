@@ -1,0 +1,1065 @@
+/* ---------------------------------------------------------------------- */
+/* 1. VARIABLES Y ESTILOS GLOBALES */
+/* ---------------------------------------------------------------------- */
+:root {
+    --primary-color: #007bff; /* Azul primario */
+    --secondary-color: #2f4f70; /* Azul oscuro/gris para el header y fondo del hero */
+    --accent-color: #ffc107; /* Amarillo/Dorado para acentos (botones/formas) */
+    --text-dark: #333;
+    --text-light: #fff;
+    --bg-light: #f4f7f6; /* Fondo de la página */
+    --section-bg: #fff; /* Fondo de las tarjetas y secciones claras */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+/* --- ESTILOS DE BOTONES BASE --- */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-align: center;
+}
+
+.download-cv-btn {
+    background-color: transparent;
+    border: 2px solid var(--text-light);
+    color: var(--text-light);
+}
+
+.download-cv-btn:hover {
+    background-color: var(--text-light);
+    color: var(--primary-color);
+}
+
+.start-consulting-btn {
+    background-color: var(--accent-color);
+    color: var(--text-dark);
+    border: none;
+}
+
+.start-consulting-btn:hover {
+    background-color: #e0a800;
+    transform: translateY(-2px);
+}
+
+/* --- ESTILOS DE SECCIÓN --- */
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+.section-subtitle {
+    font-size: 1.1em;
+    color: #666;
+    margin-bottom: 30px;
+}
+/* ---------------------------------------------------------------------- */
+/* 2. NAVEGACIÓN Y ENCABEZADO */
+/* ---------------------------------------------------------------------- */
+.header {
+    background-color: var(--secondary-color);
+    padding: 15px 0;
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(25, 0, 255, 0.1);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+}
+
+/* --- ESTILOS CLAVE PARA UNIR LOS ELEMENTOS DE NAVEGACIÓN --- */
+.nav-actions-group {
+    display: flex; /* Hacemos este contenedor flex */
+    align-items: center;
+    /* ¡AJUSTE CLAVE AQUÍ! Definimos el espacio exacto entre los hijos directos:
+       el nav-wrapper (que contiene los enlaces) y el botón de CV.
+       0.5cm es aproximadamente 5px. */
+    gap: 5px; 
+}
+
+/* --- ESTILOS DEL LOGO DE IMAGEN --- */
+.logo .logo-image {
+    height: 40px; 
+    width: auto;
+    filter: invert(1); 
+}
+
+/* --- Contenedor Flex para la Navegación (nav-wrapper) --- */
+.nav-wrapper {
+    display: flex; 
+    align-items: center;
+    /* El gap aquí es para el burger (oculto en PC) y los nav-links si fueran hermanos,
+       pero aquí .nav-links es el único hijo visible. */
+    gap: 0; 
+    margin-right: 0; /* Aseguramos que no haya margen extra */
+}
+
+
+/* --- NAVEGACIÓN DE ESCRITORIO --- */
+.nav-links {
+    list-style: none;
+    display: flex; 
+    position: static; 
+    padding: 0;
+    margin: 0;
+}
+
+.nav-links li a {
+    color: var(--text-light);
+    /* Mantén un padding balanceado para los enlaces */
+    padding: 10px 15px; 
+    display: block;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+/* Opcional: Si el padding del último enlace causa aún más espacio, podrías anularlo */
+.nav-links li:last-child a {
+     padding-right: 15px; /* Ajusta este valor si sientes que sobra espacio */
+}
+
+
+.nav-links li a:hover {
+    color: var(--primary-color);
+}
+
+/* ---------------------------------------------------- */
+/* --- ESTILOS DEL MENÚ HAMBURGUESA (.burger) --- */
+/* ---------------------------------------------------- */
+.burger {
+    display: none; 
+}
+.burger input { display: none; }
+.burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: var(--text-light); 
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+.burger span:nth-of-type(1) { top: 0px; transform-origin: left center; }
+.burger span:nth-of-type(2) { top: 50%; transform: translateY(-50%); transform-origin: left center; }
+.burger span:nth-of-type(3) { top: 100%; transform-origin: left center; transform: translateY(-100%); }
+.burger input:checked ~ span:nth-of-type(1) { transform: rotate(45deg); top: 0px; left: 5px; }
+.burger input:checked ~ span:nth-of-type(2) { width: 0%; opacity: 0; }
+.burger input:checked ~ span:nth-of-type(3) { transform: rotate(-45deg); top: 28px; left: 5px; }
+/* ---------------------------------------------------------------------- */
+/* 3. HERO SECTION (SECCIÓN PRINCIPAL) */
+/* ---------------------------------------------------------------------- */
+
+.hero-section {
+    /* Degradado de azul oscuro a primario */
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color) 70%);
+    color: var(--text-light);
+    padding: 150px 0 150px 0; /* Padding superior para compensar el fixed header */
+    position: relative;
+    overflow: hidden; /* Evita que las formas de fondo generen scroll */
+    min-height: 600px;
+}
+
+.hero-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.hero-text {
+    max-width: 50%;
+}
+
+.greeting {
+    font-size: 1.1em;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 4em;
+    font-weight: 800;
+    margin-bottom: 10px;
+    line-height: 1.1;
+}
+
+.title {
+    font-size: 1.2em;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+/* Status de Freelance con punto verde animado */
+.freelance-status {
+    position: relative;
+    font-weight: 500;
+}
+
+.freelance-status::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #00ff00; /* Punto verde */
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.2); opacity: 0.7; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* --- Contenedor de Imagen y Elementos Visuales --- */
+.hero-image-container {
+    position: relative;
+    width: 40%;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    min-height: 350px; 
+}
+
+/* Placeholder para la imagen de perfil (Círculo) */
+.hero-image-container .profile-photo {
+    display: block;
+    width: 100%; 
+    max-width: 300px; 
+    height: 300px; 
+    border-radius: 50%;
+    position: relative; 
+    z-index: 11; 
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0.1); 
+    background-color: rgba(255, 255, 255, 0.5); /* Color de relleno temporal */
+}
+
+/* Caja de Clientes Satisfechos */
+.satisfied-customers {
+    position: absolute;
+    top: 75%; 
+    left: 70%; 
+    transform: translate(-50%, -50%); 
+    background-color: #fff;
+    color: var(--text-dark);
+    padding: 15px 20px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    z-index: 12;
+    min-width: 150px;
+}
+
+.satisfied-customers .count {
+    display: block;
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.satisfied-customers .label {
+    font-size: 0.8em;
+    font-weight: 500;
+    color: #666;
+}
+
+/* --- Formas de Fondo Decorativas --- */
+.shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.3;
+}
+
+.shape-circle-yellow {
+    width: 80px;
+    height: 80px;
+    background-color: var(--accent-color);
+    top: 5%;
+    right: 35%;
+    border: 5px solid rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+}
+
+.shape-circle-white {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.1);
+    top: 20%;
+    right: 0%;
+    border-radius: 50%;
+}
+
+.shape-triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgba(255, 255, 255, 0.5);
+    background: none;
+    top: 10%;
+    right: 5%;
+    transform: rotate(45deg);
+    border-radius: 0;
+}
+/* ---------------------------------------------------------------------- */
+/* 4. ABOUT ME SECTION (ACERCA DE MÍ) */
+/* ---------------------------------------------------------------------- */
+
+.about-section {
+    padding: 100px 0;
+}
+
+.about-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+/* --- ESTRUCTURA: COLUMNA ÚNICA PARA CENTRADO --- */
+.about-main-content {
+    display: grid;
+    grid-template-columns: 1fr; 
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.about-description {
+    max-width: 800px; 
+    margin: 0 auto 30px auto; 
+    color: #555;
+    line-height: 1.8;
+    text-align: center;
+}
+
+.about-details {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; /* CENTRA EL GRUPO DE CV, SOCIALES E INFO */
+    gap: 30px;
+    margin-bottom: 50px; 
+}
+
+
+/* --- Grupo CV y Sociales --- */
+.cv-social-group {
+    display: flex;
+    justify-content: center; /* Centra los botones y sociales en esta fila */
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 0; 
+}
+
+.download-cv-btn-small {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    padding: 10px 20px;
+}
+
+.download-cv-btn-small:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* *************************************************************** */
+/* --- ESTILOS DE LOS BOTONES SOCIALES (ANIMACIÓN RESTAURADA) --- */
+/* *************************************************************** */
+.social-links-container {
+    display: flex;
+    gap: 10px; 
+}
+
+.button {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    border: none;
+    position: relative;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* TRANSICIÓN NECESARIA PARA LA ANIMACIÓN AL HACER CLICK */
+    transition: 0.1s; 
+}
+
+/* Colores de Fondo Específicos */
+.social-links-container .instagram {
+    background: linear-gradient(120deg, #833ab4, #fd1d1d, #fcb045);
+}
+
+.social-links-container .whatsapp {
+    background: linear-gradient(120deg, #02ff2c, #008a12);
+}
+
+.social-links-container .twitter {
+    background: rgb(69, 187, 255);
+}
+
+.social-links-container .github {
+    background: black;
+}
+
+.button svg {
+    color: white;
+    width: 30px;
+    height: 30px;
+    z-index: 9;
+}
+
+/* ESTILO NECESARIO PARA LA ANIMACIÓN DE 'CLICK' */
+.button:active { 
+    transform: scale(0.85);
+}
+
+/* ESTILO NECESARIO PARA LA ANIMACIÓN DE 'HOVER' (EFECTO ANILLO) */
+.button::before {
+    content: "";
+    position: absolute;
+    width: 55px;
+    height: 55px;
+    background-color: #212121;
+    border-radius: 50px;
+    z-index: -1;
+    border: 0px solid rgba(255, 255, 255, 0.411);
+    transition: 0.4s;
+}
+
+.button:hover::before {
+    width: 0px;
+    height: 0px;
+}
+/* *************************************************************** */
+/* --- FIN CORRECCIÓN BOTONES SOCIALES --- */
+/* *************************************************************** */
+
+
+/* *************************************************************** */
+/* --- Información Personal (TABLA ESTILIZADA CORREGIDA) --- */
+/* *************************************************************** */
+.personal-info {
+    padding: 20px;
+    border: 1px solid #ddd; 
+    border-radius: 10px;
+    max-width: 450px; 
+    margin: 20px auto 0 auto; 
+    text-align: left; 
+}
+
+.personal-info p {
+    margin-bottom: 12px;
+    font-size: 1em;
+    display: flex; 
+    justify-content: space-between;
+    padding-bottom: 5px;
+    border-bottom: 1px dotted #eee; 
+}
+
+/* Último elemento sin borde inferior */
+.personal-info p:last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.personal-info strong {
+    font-weight: 700;
+    color: var(--secondary-color);
+}
+
+.personal-info span {
+    color: #555;
+    font-weight: 500;
+}
+/* *************************************************************** */
+/* --- FIN CORRECCIÓN INFORMACIÓN PERSONAL --- */
+/* *************************************************************** */
+
+
+/* --- Grid de Habilidades (se mantiene) --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 250px); 
+    gap: 20px;
+    margin-top: 30px;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.skill-box {
+    background-color: var(--section-bg);
+    padding: 30px; 
+    border-radius: 15px; 
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08); 
+    position: relative;
+    overflow: hidden;
+    /* TRANSICIÓN NECESARIA PARA LA ANIMACIÓN HOVER */
+    transition: background-color 0.3s, transform 0.3s; 
+    text-align: center;
+}
+
+.skill-box:hover {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    transform: translateY(-5px); 
+}
+
+.skill-box:hover .percentage,
+.skill-box:hover .skill-name {
+    color: var(--text-light);
+}
+
+.skill-box .percentage {
+    font-size: 2.5em; 
+    font-weight: 800;
+    color: var(--primary-color);
+    display: block;
+    margin-bottom: 5px;
+    transition: color 0.3s;
+}
+
+.skill-box .skill-name {
+    font-size: 1.1em; 
+    color: var(--text-dark);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+/* ---------------------------------------------------------------------- */
+/* 5. SERVICES SECTION (SERVICIOS) */
+/* ---------------------------------------------------------------------- */
+
+.services-section {
+    background-color: var(--section-bg); 
+    padding: 100px 0 50px 0; /* Padding superior estándar, padding inferior reducido */
+}
+
+.services-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-tag {
+    color: var(--primary-color);
+    font-size: 0.9em;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.section-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-top: 10px;
+}
+
+/* --- CUADRÍCULA DE SERVICIOS --- */
+.services-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.service-item {
+    flex: 1; /* Permite que los tres ítems ocupen el mismo espacio horizontal */
+    background-color: var(--text-light); 
+    padding: 40px 30px; /* Padding ajustado para un mejor look */
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    /* ANIMACIÓN: Transición para el efecto hover */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+/* --- EFECTO HOVER: Eleva la caja y cambia el color del ícono --- */
+.service-item:hover {
+    transform: translateY(-8px); /* Eleva la caja un poco más */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    background-color: #ffffff; /* Asegura que no cambie de color a menos que se quiera */
+}
+
+/* --- ESTILO DEL ÍCONO (Placeholder) --- */
+.service-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    margin: 0 auto 20px auto;
+    /* Transición para que el ícono pueda cambiar de color si se desea */
+    transition: background-color 0.3s ease;
+    /* CENTRADO DE CUALQUIER ÍCONO SVG/IMAGEN FUTURA */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2em; /* Si usas Font Icons */
+    color: var(--text-light);
+}
+
+.service-item h3 {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.service-item p {
+    color: #555;
+    line-height: 1.7;
+    font-weight: 400;
+}
+
+/* ---------------------------------------------------------------------- */
+/* 6. FOOTER (Anteriormente Parte 8) */
+/* ---------------------------------------------------------------------- */
+
+.footer {
+    /* Color de Fondo y Relleno */
+    /* Fondo negro sólido (Text-Dark es #333333, un negro casi total) */
+    background-color: var(--text-dark); 
+    padding: 60px 0; /* Más relleno vertical para un mejor 'peso' visual */
+    
+    /* Tipografía */
+    font-size: 0.95em;
+    /* Color de texto principal en blanco para todo el footer */
+    color: var(--text-light); 
+}
+
+.footer-container {
+    /* Distribución Principal */
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start; /* Alinea los elementos a la parte superior */
+    
+    /* Texto */
+    text-align: left; /* Alineación de texto por defecto */
+}
+
+
+/* --- 6.1. ESTILOS DEL LOGO y COPYRIGHT (Izquierda) --- */
+
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    margin-bottom: 15px;
+}
+
+/* Estilo para la imagen del logo en el footer, similar al header */
+.footer-logo .logo-image-footer {
+    height: 40px; /* Ajusta la altura para que coincida con el logo del header si es diferente */
+    width: auto; /* Mantiene la proporción */
+}
+
+.copyright {
+    opacity: 0.8;
+}
+
+
+/* --- 6.2. ESTILOS DE CONTACTO (Centro) --- */
+
+.footer-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centramos el email */
+}
+
+.footer-center p {
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.footer-email {
+    /* Estilo del Enlace */
+    /* El enlace de contacto destacado en color primario */
+    color: var(--primary-color); 
+    text-decoration: none;
+    
+    /* Tipografía */
+    font-weight: 600;
+    font-size: 1.2em;
+    
+    /* Transición */
+    transition: color 0.3s ease;
+}
+
+.footer-email:hover {
+    color: var(--text-light); /* Se vuelve blanco al pasar el ratón */
+}
+
+
+/* --- 6.3. ESTILOS DE REDES SOCIALES (Derecha) --- */
+
+.footer-right .social-links-container {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-right .social-links-container .button {
+    /* Dimensiones y Forma */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: none;
+    
+    /* Color y Transición */
+    /* Fondo sutilmente visible, contrastando con el fondo oscuro */
+    background-color: rgba(255, 255, 255, 0.15); 
+    transition: background-color 0.3s ease;
+}
+
+.footer-right .social-links-container .button svg {
+    /* Hacemos los íconos de las redes sociales blancos */
+    color: var(--text-light); 
+    width: 20px;
+    height: 20px;
+}
+
+.footer-right .social-links-container .button:hover {
+    background-color: var(--primary-color); /* Hover en color primario */
+}
+
+.footer-right .social-links-container .button:hover svg {
+    color: var(--text-dark); /* El icono se oscurece al hacer hover */
+}
+
+
+/* --- 6.4. RESPONSIVIDAD DEL FOOTER --- */
+
+@media (max-width: 992px) {
+    .footer-container {
+        /* Cambio de Layout */
+        flex-direction: column;
+        gap: 30px;
+        align-items: center; /* Centramos todo en dispositivos pequeños */
+        
+        /* Texto */
+        text-align: center;
+    }
+    
+    /* Reordenamiento en móviles (para un flujo más lógico) */
+    .footer-left {
+        align-items: center;
+        order: 1; /* Logo y Copyright primero */
+    }
+    
+    .footer-right {
+        order: 2; /* Redes Sociales en el medio */
+    }
+    
+    .footer-center {
+        order: 3; /* Contacto/Email al final */
+    }
+}
+/* ---------------------------------------------------------------------- */
+/* 7. MEDIA QUERIES (RESPONSIVE) - FINAL Y FUNCIONAL */
+/* ---------------------------------------------------------------------- */
+
+/* --- Tabletas y Dispositivos Medianos (max-width: 992px) --- */
+@media (max-width: 992px) {
+    
+    /* AJUSTES GENERALES DEL CONTENEDOR: Asegura un margen en los bordes */
+    .container {
+        width: 95%; 
+        box-sizing: border-box;
+    }
+
+    /* 1. AJUSTES DE NAVEGACIÓN Y ESTRUCTURA DEL HEADER */
+    
+    .header {
+        position: relative; /* Clave para el menú móvil */
+    }
+    
+    .burger {
+        display: block; 
+        position: relative;
+        width: 30px; 
+        height: 24px; 
+    }
+    
+    .burger span {
+        background: var(--text-dark); 
+        height: 3px;
+    }
+    
+    .nav-links {
+        display: none; 
+        position: absolute; 
+        top: 100%; 
+        right: 0; 
+        width: 200px; 
+        max-width: 90%; 
+        background-color: var(--section-bg); 
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+        z-index: 999; 
+        padding: 10px 0;
+        flex-direction: column; 
+        align-items: flex-start;
+    }
+
+    .nav-links.active { 
+        display: flex; 
+    }
+
+    .nav-links li {
+        width: 100%; 
+    }
+
+    .nav-links li a {
+        color: var(--text-dark); 
+        margin: 0; 
+        padding: 10px 15px; 
+        width: 100%; 
+        text-align: left; 
+    }
+    
+    .nav-links li a:hover {
+        color: var(--primary-color);
+        background-color: var(--bg-light); 
+    }
+
+    .header .download-cv-btn {
+        display: none; 
+    }
+
+    /* **************************************************** */
+    /* 2. HERO SECTION - APILAMIENTO VERTICAL Y CENTRADO */
+    /* **************************************************** */
+    .hero-section {
+        padding-top: 100px;
+        padding-bottom: 50px; 
+    }
+
+    .hero-content {
+        flex-direction: column; /* Apilamiento vertical */
+        text-align: center;
+        align-items: center; 
+    }
+    
+    .hero-text {
+        max-width: 100%;
+        width: 100%; 
+        order: 1; 
+        margin-top: 0; 
+        margin-bottom: 40px; 
+    }
+    
+    .name {
+        font-size: 3.5em; 
+    }
+    
+    .hero-actions {
+        justify-content: center;
+        flex-wrap: wrap; 
+        gap: 20px; 
+    }
+
+    .hero-image-container {
+        width: 100%; 
+        max-width: 350px; 
+        order: 2; 
+        margin: 0 auto; 
+        min-height: 250px;
+    }
+    
+    .hero-image-container .profile-photo {
+        max-width: 250px;
+        height: 250px;
+        box-shadow: 0 0 0 8px rgba(255, 255, 255, 0.1); 
+    }
+
+    /* CORRECCIÓN CLAVE: REPOSICIONAMIENTO DE LA CAJA DE CLIENTES (Evita Overflow) */
+    .satisfied-customers {
+        position: relative; 
+        top: auto; 
+        left: auto;
+        transform: none; 
+        width: 90%; 
+        max-width: 300px; 
+        margin: 40px auto 0 auto; 
+        z-index: 20; 
+    }
+
+    .shape-circle-yellow, .shape-circle-white, .shape-triangle {
+        display: none;
+    }
+
+    /* **************************************************** */
+    /* 3. ABOUT ME (SECCIÓN) - CORRECCIÓN DEL TEXTO Y APILAMIENTO */
+    /* **************************************************** */
+    .about-main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+        width: 100%; 
+        overflow-x: hidden; 
+    }
+    
+    /* CORRECCIÓN FINAL DEL PÁRRAFO DE TEXTO: Asegura que el texto se acomode hacia abajo */
+    .about-description {
+        max-width: 100%; 
+        width: 100%; 
+        padding: 0 20px; 
+        margin: 0 auto 30px auto; 
+        box-sizing: border-box;
+        text-align: left; /* Alineación a la izquierda para un mejor flujo de línea */
+        line-height: 1.7;
+    }
+    
+    /* APILAMIENTO DE BOTONES Y SOCIALES */
+    .cv-social-group {
+        justify-content: center; 
+        flex-wrap: wrap; 
+        gap: 20px; 
+    }
+    
+    .social-links-container {
+        display: flex; 
+        gap: 10px; 
+        justify-content: center;
+        flex-wrap: wrap; 
+    }
+    
+    /* CUADRÍCULA DE HABILIDADES */
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+        max-width: 100%; 
+        margin: 30px auto 0 auto; 
+        padding: 0 15px; 
+        box-sizing: border-box;
+    }
+    
+    .personal-info {
+        max-width: 90%;
+        margin: 20px auto;
+        padding: 15px;
+    }
+    
+    .personal-info p {
+        justify-content: space-between; 
+    }
+
+    /* **************************************************** */
+    /* 4. SERVICES SECTION - APILAMIENTO VERTICAL */
+    /* **************************************************** */
+    .services-grid {
+        flex-direction: column; 
+    }
+    
+    /* **************************************************** */
+    /* 5. FOOTER (Parte 6) - APILAMIENTO VERTICAL */
+    /* **************************************************** */
+    .footer-container {
+        flex-direction: column; 
+        gap: 25px;
+        align-items: center;
+        text-align: center;
+    }
+    .footer-left, .footer-center, .footer-right {
+        align-items: center;
+    }
+}
+
+/* ---------------------------------------------------------------------- */
+/* RESPONSIVE: MÓVILES PEQUEÑOS (< 576px) */
+/* ---------------------------------------------------------------------- */
+@media (max-width: 576px) {
+    .name {
+        font-size: 2.5em; 
+    }
+    
+    .title {
+        font-size: 1.1em;
+    }
+    
+    .hero-section {
+        padding-bottom: 50px; 
+    }
+
+    .hero-image-container .profile-photo {
+        max-width: 200px;
+        height: 200px;
+    }
+
+    .satisfied-customers {
+        margin-top: 30px; 
+    }
+
+    .hero-actions {
+        flex-direction: column; 
+        gap: 15px;
+    }
+
+    .start-consulting-btn {
+        width: 100%; 
+    }
+
+    /* CORRECCIÓN FINAL DEL PÁRRAFO DE TEXTO EN MÓVILES PEQUEÑOS */
+    .about-description {
+        padding: 0 10px; 
+        text-align: left; 
+    }
+
+    /* CUADRÍCULA DE HABILIDADES A UNA COLUMNA ÚNICA */
+    .skills-grid {
+        grid-template-columns: 1fr; 
+        max-width: 100%;
+        padding: 0 10px; 
+    }
+    
+    .skill-box {
+        padding: 20px;
+    }
+    
+    .social-links-container {
+        flex-wrap: wrap; 
+        justify-content: center;
+    }
+}

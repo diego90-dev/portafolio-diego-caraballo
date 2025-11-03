@@ -1,0 +1,733 @@
+/* ======================================================================= */
+/* ----------------------------------------------------------------------- */
+/* ARCHIVO CSS COMPLETO PARA EL PORTAFOLIO DE DIEGO CARABALLO             */
+/* ----------------------------------------------------------------------- */
+/* ======================================================================= */
+
+
+/* =============================== */
+/* 1. Variables y Configuración Base */
+/* =============================== */
+
+:root {
+    --primary-color: #007bff; /* Azul vibrante */
+    --secondary-color: #096abe; /* Azul más fuerte */
+    --dark-color: #212529; /* Azul oscuro/gris para el header, footer y texto principal, ajustado a un tono más convencional de oscuro para mejor contraste */
+    --light-color: #f8f9fa; /* Claro para secciones */
+    --white: #ffffff;
+    --font-family: 'Poppins', sans-serif;
+    --overlay-color: rgba(0, 0, 0, 0.65); /* Capa oscura para mejor legibilidad del Hero */
+
+    /* Nuevas variables para un mejor control y legibilidad, derivado de tus colores */
+    --text-primary: var(--dark-color);
+    --text-secondary: var(--secondary-color);
+    --text-light: var(--white);
+    --bg-section-light: var(--light-color);
+    --bg-section-white: var(--white);
+    --card-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    --card-shadow-hover: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+body {
+    font-family: var(--font-family);
+    color: var(--text-primary); /* Usar la nueva variable */
+    background-color: var(--white);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal en caso de algún desbordamiento */
+}
+
+html {
+    scroll-behavior: smooth; /* Scroll Suave */
+}
+
+/* --- Estilo de Contenedor General (para centrar contenido) --- */
+.container {
+    max-width: 1200px; /* Límite de ancho para el contenido principal */
+}
+
+/* --- Estilo de Títulos de Sección --- */
+.section-padding {
+    padding: 80px 0; /* Más espacio para mejor visualización */
+}
+
+.section-title {
+    font-weight: 700;
+    color: var(--text-primary); /* Usar la nueva variable */
+    position: relative;
+    padding-bottom: 15px; /* Más espacio para el after */
+    font-size: 2.5rem;
+    text-align: center; /* Asegura que el título siempre esté centrado */
+}
+
+.section-title::after {
+    content: '';
+    display: block;
+    width: 70px; /* Un poco más ancho */
+    height: 4px; /* Un poco más grueso */
+    background: var(--primary-color);
+    margin: 10px auto 0; /* Centra el decorador debajo del título */
+    border-radius: 2px;
+}
+
+/* Estilos de botones generales (si los defines aquí, si no, usa los de Bootstrap) */
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600;
+    transition: background-color 0.3s, border-color 0.3s, transform 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color); /* Un azul más fuerte en hover */
+    border-color: var(--secondary-color);
+    transform: translateY(-2px);
+}
+
+.btn-outline-dark {
+    border-color: var(--dark-color);
+    color: var(--dark-color);
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-dark:hover {
+    background-color: var(--dark-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+
+/* =============================== */
+/* 2. Header y Navegación (Navbar) */
+/* =============================== */
+
+.header .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background-color: var(--dark-color) !important; /* Usar dark-color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    z-index: 1030; /* Asegura que el navbar esté sobre otros elementos */
+    position: sticky; /* Sticky para que se quede arriba al hacer scroll */
+    top: 0;
+}
+
+.logo-image {
+    width: 35px; /* Un poco más grande */
+    height: 35px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.6rem; /* Un poco más grande */
+    font-weight: 700;
+    color: var(--white);
+    margin-left: 8px; /* Espacio entre imagen y texto */
+}
+
+.logo-dot {
+    color: var(--primary-color);
+}
+
+.navbar-nav .nav-link {
+    color: var(--white);
+    font-weight: 400;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s, font-weight 0.3s;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* =============================== */
+/* 3. Sección Principal (HERO) */
+/* =============================== */
+
+#portfolio-hero {
+    background: linear-gradient(var(--overlay-color), var(--overlay-color)), 
+                url('../img/fondo header.jpg') center center no-repeat; /* Ajusta la ruta de la imagen */
+    background-size: cover;
+    background-attachment: fixed; 
+    
+    color: var(--white);
+    padding: 120px 0;
+    min-height: 500px; /* Un poco más de altura mínima */
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 1; /* Asegura que esté por debajo del navbar pero sobre el fondo */
+}
+
+#portfolio-hero .display-4 {
+    font-weight: 800;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); /* Sombra de texto más fuerte */
+    font-size: 3.5rem; /* Ajuste para un título más impactante */
+}
+
+#portfolio-hero .lead {
+    font-weight: 400;
+    font-size: 1.35rem; /* Ajuste para una descripción más legible */
+    max-width: 800px; /* Limita el ancho para mejor lectura */
+    margin: 0 auto 2rem auto; /* Centra y da espacio */
+}
+
+
+/* =============================== */
+/* 4. Resumen (About Me) */
+/* =============================== */
+
+#portfolio-summary {
+    background-color: var(--bg-section-white); /* Fondo blanco */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* Sombra suave para la sección */
+}
+
+.about-image-wrapper { /* Clase para el contenedor de la imagen de perfil en el resumen */
+    width: 200px; /* Tamaño de la imagen de perfil */
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid var(--primary-color); /* Borde de color primario */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Sombra más pronunciada */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    display: inline-block; /* Para aplicar transform */
+}
+
+.about-image-wrapper:hover {
+    transform: scale(1.03); /* Pequeño zoom al pasar el ratón */
+    border-color: var(--secondary-color); /* Cambia el color del borde al hacer hover */
+}
+
+#portfolio-summary h2 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+#portfolio-summary h3 {
+    font-size: 1.3rem;
+    color: #6c757d; /* Color de texto más suave para el subtítulo */
+    margin-bottom: 1.5rem;
+}
+
+#portfolio-summary p {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #495057; /* Color de texto del párrafo */
+    margin-bottom: 1rem;
+}
+
+/* =============================== */
+/* 5. Índice de Navegación Interna */
+/* =============================== */
+
+#portfolio-index {
+    background-color: var(--bg-section-light); /* Fondo claro para contraste */
+}
+
+.card-link-item {
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+#portfolio-index .card {
+    border: 1px solid rgba(0, 123, 255, 0.2); /* Borde más suave de primary-color */
+    border-left: 5px solid var(--primary-color); /* Detalle visual distintivo */
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    background-color: var(--bg-section-white);
+    text-align: center;
+}
+
+#portfolio-index .card:hover {
+    transform: translateY(-8px); /* Elevación más notable */
+    box-shadow: 0 12px 28px rgba(0, 123, 255, 0.25) !important; /* Sombra más intensa y azulada */
+}
+
+#portfolio-index .card-title {
+    font-weight: 600;
+    color: var(--secondary-color); /* Título de tarjeta con secondary-color */
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+#portfolio-index .card-text {
+    color: #6c757d;
+    font-size: 1rem;
+}
+
+/* =============================== */
+/* 6. Proyectos Destacados */
+/* =============================== */
+
+#portfolio-projects {
+    background-color: var(--bg-section-light); /* Fondo claro para la sección */
+}
+
+#projects-container {
+    margin-top: 40px; /* Espacio para el título de la sección */
+}
+
+.portfolio-item .card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--white); /* Asegurar que el fondo de la tarjeta sea blanco */
+    box-shadow: var(--card-shadow); /* Sombra ligera para tarjetas */
+}
+.portfolio-item .card:hover {
+    transform: translateY(-8px); /* Elevación más notable al pasar el ratón */
+    box-shadow: var(--card-shadow-hover); /* Sombra más pronunciada al hover */
+}
+
+.portfolio-item .card-img-top {
+    height: 220px; /* Altura un poco mayor para las imágenes */
+    object-fit: cover;
+    border-top-left-radius: calc(0.5rem - 1px); 
+    border-top-right-radius: calc(0.5rem - 1px);
+}
+
+.portfolio-item .card-body {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem; /* Más padding para el cuerpo de la tarjeta */
+}
+
+.portfolio-item .card-title {
+    font-size: 1.5rem; /* Ajuste de tamaño para el título de la tarjeta */
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+}
+
+.portfolio-item .card-text {
+    flex-grow: 1; 
+    color: #6c757d; 
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.portfolio-item-badges {
+    margin-top: 1rem;
+    margin-bottom: 1.2rem; /* Más espacio antes del botón */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Espacio entre los badges */
+}
+
+.portfolio-item-badges .badge {
+    font-size: 0.85rem; /* Un poco más grande */
+    padding: 0.6em 1em; /* Padding ajustado */
+    font-weight: 500;
+    background-color: var(--primary-color); /* Color primario para los badges */
+    color: var(--white);
+    border-radius: 0.3rem; /* Bordes ligeramente más redondeados */
+}
+
+.portfolio-item .btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    font-weight: 600; /* Más peso al botón */
+    transition: all 0.3s;
+    padding: 0.75rem 1.5rem; /* Padding ajustado */
+    font-size: 1rem;
+}
+
+.portfolio-item .btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+/* Botón "Mostrar Más Proyectos" */
+#load-more-btn {
+    display: block; 
+    margin: 60px auto 0 auto; /* Más margen superior */
+    padding: 12px 35px; /* Más padding */
+    font-size: 1.15rem; /* Un poco más grande */
+    border-radius: 50px; 
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+#load-more-btn:hover {
+    background-color: var(--primary-color);
+    color: var(--white);
+    transform: translateY(-3px); /* Elevación más pronunciada */
+    box-shadow: 0 8px 20px rgba(0, 123, 255, 0.3); /* Sombra para el botón */
+}
+
+
+/* =============================== */
+/* 7. Habilidades Técnicas */
+/* =============================== */
+
+#portfolio-skills {
+    background-color: var(--bg-section-white); /* Fondo blanco para esta sección */
+}
+
+.skill-category {
+    background-color: var(--bg-section-light); /* Fondo claro para las tarjetas de habilidad */
+    border: 1px solid #dee2e6;
+    border-radius: 0.75rem; /* Bordes más redondeados */
+    padding: 2rem; /* Más padding */
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    height: 100%;
+}
+
+.skill-category:hover {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important; /* Sombra suave */
+    transform: translateY(-8px); /* Elevación sutil */
+}
+
+.skill-category h3 {
+    font-weight: 700;
+    font-size: 1.7rem; /* Un poco más grande */
+    color: var(--secondary-color); /* Título de categoría con secondary-color */
+    margin-bottom: 1.5rem; /* Más espacio */
+}
+
+.skill-category .badge {
+    background-color: rgba(0, 123, 255, 0.1); /* Ligero azul de primary-color */
+    color: var(--primary-color) !important; /* Texto en primary-color */
+    font-weight: 600;
+    border: 1px solid rgba(0, 123, 255, 0.2);
+    transition: background-color 0.2s, transform 0.2s;
+    margin-right: 10px; /* Más espacio entre badges */
+    margin-bottom: 10px;
+    padding: 0.7em 1.1em; /* Más padding */
+    border-radius: 0.3rem;
+    display: inline-block;
+}
+
+.skill-category .badge:hover {
+    background-color: var(--primary-color) !important;
+    color: var(--white) !important;
+    transform: translateY(-3px); /* Pequeña elevación al hacer hover */
+}
+
+
+/* =============================== */
+/* 8. Contacto Final y Footer */
+/* =============================== */
+
+#portfolio-contact-footer {
+    background-color: var(--bg-section-light); /* Fondo claro para contraste */
+}
+
+#portfolio-contact-footer .btn-lg {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+}
+
+.footer {
+    background-color: var(--dark-color); /* Fondo oscuro para el Footer */
+    color: #adb5bd;
+    padding: 40px 0; /* Más padding */
+    font-size: 0.95rem;
+    border-top: 4px solid var(--primary-color); /* Borde superior para resaltar */
+}
+
+.footer-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px; /* Espacio entre los elementos del footer */
+}
+
+.footer-left, .footer-center, .footer-right {
+    padding: 10px 0;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.logo-image-footer {
+    width: 35px; /* Tamaño de logo consistente */
+    height: 35px;
+    margin-right: 10px;
+}
+
+.copyright {
+    color: #ced4da; /* Color de texto más claro para el copyright */
+}
+
+.footer-email {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.footer-email:hover {
+    color: var(--white);
+}
+
+/* =============================== */
+/* 9. Modal de Detalles de Proyecto */
+/* =============================== */
+
+.modal-header {
+    background-color: var(--primary-color);
+    color: var(--white);
+    border-bottom: none;
+}
+
+.modal-header .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%); /* Hace la X blanca */
+}
+
+.modal-title {
+    font-weight: 700;
+}
+
+.modal-body {
+    color: var(--text-primary);
+}
+
+#modalProjectLink {
+    color: var(--secondary-color);
+}
+
+#modalVisitProject {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+#modalVisitProject:hover {
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
+}
+
+
+/* =============================== */
+/* 10. Regla para ocultar proyectos */
+/* =============================== */
+.hidden-project {
+    display: none; /* Esta clase ocultará los proyectos por defecto */
+}
+
+
+/* =============================== */
+/* 11. Responsive Design */
+/* =============================== */
+
+@media (max-width: 992px) {
+    .section-title {
+        font-size: 2rem;
+    }
+
+    #portfolio-hero {
+        padding: 100px 0;
+        min-height: 400px;
+    }
+
+    #portfolio-hero .display-4 {
+        font-size: 2.8rem;
+    }
+
+    #portfolio-hero .lead {
+        font-size: 1.15rem;
+    }
+
+    #portfolio-summary h2 {
+        font-size: 2rem;
+    }
+
+    #portfolio-summary h3 {
+        font-size: 1.1rem;
+    }
+
+    .about-image-wrapper {
+        width: 180px;
+        height: 180px;
+    }
+
+    #portfolio-index .card-title {
+        font-size: 1.25rem;
+    }
+
+    .portfolio-item .card-img-top {
+        height: 180px;
+    }
+
+    .portfolio-item .card-title {
+        font-size: 1.3rem;
+    }
+
+    .skill-category h3 {
+        font-size: 1.5rem;
+    }
+
+    #load-more-btn {
+        padding: 10px 30px;
+        font-size: 1.1rem;
+    }
+
+    #portfolio-contact-footer .btn-lg {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    .footer-left, .footer-center, .footer-right {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    .footer-logo {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 0;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    .section-title::after {
+        width: 50px;
+        height: 3px;
+    }
+
+    #portfolio-hero {
+        padding: 80px 0;
+        min-height: 350px;
+    }
+
+    #portfolio-hero .display-4 {
+        font-size: 2.2rem;
+    }
+
+    #portfolio-hero .lead {
+        font-size: 1rem;
+    }
+
+    #portfolio-summary h2 {
+        font-size: 1.8rem;
+    }
+
+    #portfolio-summary h3 {
+        font-size: 1rem;
+    }
+    #portfolio-summary p {
+        font-size: 1em;
+    }
+
+    .about-image-wrapper {
+        width: 150px;
+        height: 150px;
+        border-width: 4px;
+    }
+    
+    #portfolio-index .col-md-3 { /* Apila las tarjetas del índice */
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .portfolio-item .card-img-top {
+        height: 160px;
+    }
+
+    .portfolio-item .card-title {
+        font-size: 1.2rem;
+    }
+    .portfolio-item .card-text {
+        font-size: 0.9em;
+    }
+    .portfolio-item-badges .badge {
+        font-size: 0.75rem;
+        padding: 0.5em 0.8em;
+    }
+
+    .skill-category h3 {
+        font-size: 1.3rem;
+    }
+    .skill-category .badge {
+        font-size: 0.8rem;
+        padding: 0.5em 0.9em;
+    }
+
+    #load-more-btn {
+        padding: 8px 25px;
+        font-size: 1rem;
+    }
+
+    #portfolio-contact-footer .btn-lg {
+        padding: 10px 25px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-padding {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 1.5rem;
+    }
+    .section-title::after {
+        width: 40px;
+    }
+
+    #portfolio-hero {
+        padding: 60px 0;
+        min-height: 300px;
+    }
+    #portfolio-hero .display-4 {
+        font-size: 1.8rem;
+    }
+    #portfolio-hero .lead {
+        font-size: 0.9em;
+    }
+
+    .logo-text {
+        font-size: 1.3rem;
+    }
+    .logo-image {
+        width: 30px;
+        height: 30px;
+    }
+
+    .about-image-wrapper {
+        width: 120px;
+        height: 120px;
+        border-width: 3px;
+    }
+    #portfolio-summary h2 {
+        font-size: 1.5rem;
+    }
+    #portfolio-summary h3 {
+        font-size: 0.9rem;
+    }
+
+    .portfolio-item .card-img-top {
+        height: 140px;
+    }
+
+    #portfolio-contact-footer .btn-lg {
+        display: block; /* Apilar botones */
+        width: 100%;
+        margin-bottom: 15px;
+    }
+    #portfolio-contact-footer .btn-lg:last-child {
+        margin-bottom: 0;
+    }
+}
